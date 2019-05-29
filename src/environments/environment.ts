@@ -4,7 +4,13 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/api"
+  apiUrl: "http://localhost:3000/api",
+  defaultLanguage: 'English',
+  supportedLanguages: [
+    'English',
+    // 'French',
+    'বাংলা'
+  ]
 };
 
 /*
