@@ -14,14 +14,14 @@
       <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent">Signup</a>
     </li>
     <li *ngIf="userIsAuthenticated">
-      <button mat-button (click)="onLogout()">Logout</button>
+      <button (click)="onLogout()" mat-button>Logout</button>
     </li>
   </ul>
-  <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+  <button [matMenuTriggerFor]="languageMenu" mat-icon-button>
     <mat-icon>language</mat-icon>
   </button>
   <mat-menu #languageMenu="matMenu">
-    <button mat-menu-item *ngFor="let language of languages" (click)="setLanguage(language)">
+    <button (click)="setLanguage(language)" *ngFor="let language of languages" mat-menu-item>
       {{language}}
     </button>
   </mat-menu>

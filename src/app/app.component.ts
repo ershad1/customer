@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
@@ -6,18 +6,17 @@ import {merge} from 'rxjs';
 import {filter, map, mergeMap} from 'rxjs/operators';
 
 import {environment} from '../environments/environment';
+import {AuthService} from './auth/auth.service';
 import {I18nService, Logger, untilDestroyed} from './core';
 // import { Subscription } from "rxjs";
-
-import { AuthService } from "./auth/auth.service";
 
 // import { ErrorService } from "./error/error.service";
 const log = new Logger('App');
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   // hasError = false;
@@ -31,7 +30,8 @@ export class AppComponent implements OnInit {
     private titleService: Title,
     private translateService: TranslateService,
     private i18nService: I18nService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.authService.autoAuthUser();

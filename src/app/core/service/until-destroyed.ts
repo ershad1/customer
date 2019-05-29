@@ -1,5 +1,5 @@
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {Observable, Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 const untilDestroyedSymbol = Symbol('untilDestroyed');
 

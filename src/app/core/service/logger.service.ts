@@ -60,6 +60,9 @@ export class Logger {
    */
   static outputs: LogOutput[] = [];
 
+  constructor(private source?: string) {
+  }
+
   /**
    * Enables production mode.
    * Sets logging level to LogLevel.Warning.
@@ -67,8 +70,6 @@ export class Logger {
   static enableProductionMode() {
     Logger.level = LogLevel.Warning;
   }
-
-  constructor(private source?: string) { }
 
   /**
    * Logs messages or objects  with the debug level.
