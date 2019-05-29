@@ -1,10 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  imagePath: { type: String, required: true },
-  creator: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
+  gender: {type: String},
+  dob: {type: Date},
+  country: {type: String},
+  maritalStatus: {type: String},
+  street: {type: String},
+  city: {type: String},
+  // contacts: { type: String, required: true },
+  primaryPhone: {type: String},
+  primaryEmail: {type: String}
+
 });
 
-module.exports = mongoose.model("Customer", postSchema);
+module.exports = mongoose.model('Customer', postSchema);

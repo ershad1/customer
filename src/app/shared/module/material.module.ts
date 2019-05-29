@@ -19,6 +19,58 @@ import {MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonMo
  * NgModule that includes all Material modules that are required to serve the demo-app.
  */
 @NgModule({
+  imports: [
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    MatNativeDateModule,
+    CdkTableModule,
+    CdkTreeModule,
+    A11yModule,
+    BidiModule,
+    CdkAccordionModule,
+    TextFieldModule,
+    ObserversModule,
+    OverlayModule,
+    PlatformModule,
+    PortalModule,
+    ScrollingModule,
+    // ExperimentalScrollingModule,
+    // DialogModule,
+    DragDropModule
+  ],
   exports: [
     MatAutocompleteModule,
     MatBadgeModule,
@@ -72,5 +124,5 @@ import {MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonMo
     DragDropModule
   ]
 })
-export class AngularMaterialModule {
+export class MaterialModule {
 }

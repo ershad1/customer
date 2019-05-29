@@ -1,0 +1,117 @@
+<mat-toolbar>
+  <span>{{customerService.form.controls['id'].value ? "Modify Customer" : "New Customer"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button (click)="onClose()" class="btn-dialog-close" mat-stroked-button tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="customerService.form" class="normal-form">
+
+  <div fxLayout="column">
+    <input formControlName="id" type="hidden">
+
+    <div fxLayout="row" fxLayoutGap="20px">
+      <mat-form-field>
+        <input formControlName="firstName" matInput placeholder="First Name">
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="lastName" matInput placeholder="Last Name">
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+      <mat-form-field>
+        <mat-select placeholder="Gender" formControlName="gender">
+          <mat-option value="male">
+            Male
+          </mat-option>
+          <mat-option value="female">
+            Female
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+
+        <input matInput [matDatepicker]="myDatepicker"
+               formControlName="dob" placeholder="Date of birth">
+
+        <mat-datepicker-toggle matSuffix
+                               [for]="myDatepicker">
+
+        </mat-datepicker-toggle>
+
+        <mat-datepicker #myDatepicker></mat-datepicker>
+
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <mat-form-field>
+        <input formControlName="country" matInput placeholder="Country">
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="maritalStatus" matInput placeholder="Marital Status">
+        <mat-error>This field is mandatory.</mat-error>
+      </mat-form-field>
+
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px">
+
+      <mat-form-field>
+        <input formControlName="street" matInput placeholder="Street">
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input formControlName="city" matInput placeholder="City">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div formGroupName="contacts">
+        <div formArrayName="phone"
+             *ngFor="let x of customerService.form['controls'].contacts['controls'].phone['controls']; let i = index;">
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input matInput formControlName="phone" placeholder="Phone">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="type" placeholder="Type">
+            </mat-form-field>
+          </div>
+        </div>
+        <div formArrayName="email"
+             *ngFor="let y of customerService.form['controls'].contacts['controls'].email['controls']; let i = index;">
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input matInput formControlName="email" placeholder="Email">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="type" placeholder="Type">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+
+      <mat-form-field>
+        <input formControlName="primaryPhone" matInput placeholder="Primary Phone">
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="primaryEmail" matInput placeholder="Primary Email">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="button-row">
+    <button [disabled]="customerService.form.invalid" color="primary" [mat-dialog-close]="customerService.form.value" mat-raised-button type="submit" (click)="onSubmit()">Submit</button>
+    <button (click)="onClear()" color="warn" mat-raised-button>Clear</button>
+    <button (click)="onClose()" color="accent" mat-raised-button>Close</button>
+  </div>
+
+</form>
+
