@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>{{customerService.form.controls['id'].value ? "Modify Customer" : "New Customer"}}</span>
+  <span>{{customerService.form.controls['id'].value ? ('modifyCustomer'|translate) : ('newCustomer'|translate) }}</span>
   <span class="fill-remaining-space"></span>
   <button (click)="onClose()" class="btn-dialog-close" mat-stroked-button tabIndex="-1">
     <mat-icon>clear</mat-icon>
@@ -13,30 +13,30 @@
 
     <div fxLayout="row" fxLayoutGap="20px">
       <mat-form-field>
-        <input formControlName="firstName" matInput placeholder="First Name">
+        <input formControlName="firstName" matInput placeholder="{{'firstName'|translate}}">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input formControlName="lastName" matInput placeholder="Last Name">
+        <input formControlName="lastName" matInput placeholder="{{'lastName'|translate}}">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
     </div>
 
     <div fxLayout="row" fxLayoutGap="20px">
       <mat-form-field>
-        <mat-select placeholder="Gender" formControlName="gender">
+        <mat-select placeholder="{{'gender'|translate}}" formControlName="gender">
           <mat-option value="male">
-            Male
+            {{'male'|translate}}
           </mat-option>
           <mat-option value="female">
-            Female
+            {{'female'|translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
 
         <input matInput [matDatepicker]="myDatepicker"
-               formControlName="dob" placeholder="Date of birth">
+               formControlName="dob" placeholder="{{'dateOfBirth'|translate}}">
 
         <mat-datepicker-toggle matSuffix
                                [for]="myDatepicker">
@@ -49,11 +49,11 @@
     </div>
     <div fxLayout="row" fxLayoutGap="20px">
       <mat-form-field>
-        <input formControlName="country" matInput placeholder="Country">
+        <input formControlName="country" matInput placeholder="{{'country'|translate}}">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input formControlName="maritalStatus" matInput placeholder="Marital Status">
+        <input formControlName="maritalStatus" matInput placeholder="{{'maritalStatus'|translate}}">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
 
@@ -61,12 +61,12 @@
     <div fxLayout="row" fxLayoutGap="20px">
 
       <mat-form-field>
-        <input formControlName="street" matInput placeholder="Street">
+        <input formControlName="street" matInput placeholder="{{'street'|translate}}">
       </mat-form-field>
 
       <mat-form-field>
 
-        <input formControlName="city" matInput placeholder="City">
+        <input formControlName="city" matInput placeholder="{{'city'|translate}}">
       </mat-form-field>
     </div>
 
@@ -100,17 +100,17 @@
     <div fxLayout="row" fxLayoutGap="20px">
 
       <mat-form-field>
-        <input formControlName="primaryPhone" matInput placeholder="Primary Phone">
+        <input formControlName="primaryPhone" matInput placeholder="{{'primaryPhone'|translate}}">
       </mat-form-field>
       <mat-form-field>
-        <input formControlName="primaryEmail" matInput placeholder="Primary Email">
+        <input formControlName="primaryEmail" matInput placeholder="{{'primaryEmail'|translate}}">
       </mat-form-field>
     </div>
   </div>
   <div class="button-row">
-    <button [disabled]="customerService.form.invalid" color="primary" [mat-dialog-close]="customerService.form.value" mat-raised-button type="submit" (click)="onSubmit()">Submit</button>
-    <button (click)="onClear()" color="warn" mat-raised-button>Clear</button>
-    <button (click)="onClose()" color="accent" mat-raised-button>Close</button>
+    <button [disabled]="customerService.form.invalid" color="primary" [mat-dialog-close]="customerService.form.value" mat-raised-button type="submit" (click)="onSubmit()">{{'submit'|translate}}</button>
+    <button (click)="onClear()" color="warn" mat-raised-button>{{'clear'|translate}}</button>
+    <button (click)="onClose()" color="accent" mat-raised-button>{{'close'|translate}}</button>
   </div>
 
 </form>

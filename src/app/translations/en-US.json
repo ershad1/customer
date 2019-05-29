@@ -1,6 +1,23 @@
 {
 	"APP_NAME": "My Customers",
+	"city": "City",
+	"clear": "Clear",
+	"close": "Close",
+	"country": "Country",
 	"createCustomer": "Create Customer",
+	"dateOfBirth": "Date of Birth",
+	"female": "Female",
+	"gender": "Gender",
+	"firstName": "First Name",
+	"lastName": "Last Name",
 	"listCustomer": "Customer List",
+	"male": "Male",
+	"maritalStatus": "Marital Status",
+	"modifyCustomer": "Edit Customer",
+	"newCustomer": "New Customer",
+	"primaryEmail": "Primary Email",
+	"primaryPhone": "Primary Phone",
+	"street": "Street",
+	"submit": "Submit",
 	"totalCustomers": "Total Customers"
 }

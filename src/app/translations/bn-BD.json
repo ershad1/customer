@@ -1,6 +1,23 @@
 {
 	"APP_NAME": "আমার ক্রেতাগণ",
+	"city": "শহর",
+	"clear": "পরিস্কার",
+	"close": "বন্ধ",
+	"country": "দেশ",
 	"createCustomer": "ক্রেতা তৈরি",
+	"dateOfBirth": "জন্মদিন",
+	"female": "মহিলা",
+	"gender": "জেন্ডার",
+	"firstName": "প্রথম নাম",
+	"lastName": "শেষ নাম",
 	"listCustomer": "ক্রেতা ফর্দ",
+	"male": "পুরুষ",
+	"maritalStatus": "বৈবাহিক অবস্থা",
+	"modifyCustomer": "পরিমার্জন",
+	"newCustomer": "নতুন ক্রেতা",
+	"primaryEmail": "প্রাথমিক ইমেইল",
+	"primaryPhone": "প্রাথমিক ফোন",
+	"street": "রাস্তা",
+	"submit": "জমা",
 	"totalCustomers": "মোট ক্রেতা"
 }
