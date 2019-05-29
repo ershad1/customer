@@ -6,7 +6,7 @@
   </button>
 </mat-toolbar>
 
-<form [formGroup]="customerService.form" class="normal-form">
+<form (submit)="onSaveCustomer()" [formGroup]="customerService.form" class="normal-form">
 
   <div fxLayout="column">
     <input formControlName="id" type="hidden">
@@ -108,7 +108,7 @@
     </div>
   </div>
   <div class="button-row">
-    <button [disabled]="customerService.form.invalid" color="primary" [mat-dialog-close]="customerService.form.value" mat-raised-button type="submit" (click)="onSubmit()">{{'submit'|translate}}</button>
+    <button [disabled]="customerService.form.invalid" color="primary" mat-raised-button type="submit">{{'submit'|translate}}</button>
     <button (click)="onClear()" color="warn" mat-raised-button>{{'clear'|translate}}</button>
     <button (click)="onClose()" color="accent" mat-raised-button>{{'close'|translate}}</button>
   </div>

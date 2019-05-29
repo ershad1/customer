@@ -40,6 +40,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       this.isLoading = false;
       this.totalCustomers = customerData.customerCount;
       this.customers = customerData.customers;
+      console.log(this.customers);
 
     });
     this.userIsAuthenticated = this.authService.getIsAuth();

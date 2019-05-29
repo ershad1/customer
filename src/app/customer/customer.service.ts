@@ -93,13 +93,20 @@ export class CustomerService {
     .pipe(
       map(customerData => {
         return {
-          posts: customerData.customers.map(post => {
+          customers: customerData.customers.map(customer => {
             return {
-              title: post.title,
-              content: post.content,
-              id: post._id,
-              imagePath: post.imagePath,
-              creator: post.creator
+              id: customer._id,
+              firstName: customer.firstName,
+              lastName: customer.lastName,
+              gender: customer.gender,
+              dob: customer.dob,
+              country: customer.country,
+              maritalStatus: customer.maritalStatus,
+              street: customer.street,
+              city: customer.city,
+              // contacts?: ContactModel;
+              primaryPhone: customer.primaryPhone,
+              primaryEmail: customer.primaryEmail
             };
           }),
           maxCustomers: customerData.maxCustomers
@@ -107,7 +114,7 @@ export class CustomerService {
       })
     )
     .subscribe(transformedCustomerData => {
-      this.customers = transformedCustomerData.posts;
+      this.customers = transformedCustomerData.customers;
       this.customerUpdated.next({
         customers: [...this.customers],
         customerCount: transformedCustomerData.maxCustomers
@@ -172,33 +179,10 @@ export class CustomerService {
     });
   }
 
-  updateCustomer(id: string, firstName: string,
-                 lastName: string,
-                 gender: string,
-                 dob: Date,
-                 country: string,
-                 maritalStatus: string,
-                 street: string,
-                 city: string,
-                 primaryPhone: string,
-                 primaryEmail: string) {
-
-    const customerData = {
-      id: id,
-      firstName: firstName,
-      lastName: lastName,
-      gender: gender,
-      dob: dob,
-      country: country,
-      maritalStatus: maritalStatus,
-      street: street,
-      city: city,
-      primaryPhone: primaryPhone,
-      primaryEmail: primaryEmail
-    };
+  updateCustomer(id: string, customer: Customer) {
 
     this.http
-    .put(BACKEND_URL + id, customerData)
+    .put(BACKEND_URL + id, customer)
     .subscribe(response => {
       this.router.navigate(['/']);
     });
