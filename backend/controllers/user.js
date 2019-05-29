@@ -1,7 +1,7 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-const User = require("../models/user");
+const User = require('../models/user');
 
 exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
@@ -13,25 +13,25 @@ exports.createUser = (req, res, next) => {
       .save()
       .then(result => {
         res.status(201).json({
-          message: "User created!",
+          message: 'User created!',
           result: result
         });
       })
       .catch(err => {
         res.status(500).json({
-          message: "Invalid authentication credentials!"
+          message: 'Invalid authentication credentials!'
         });
       });
   });
-}
+};
 
 exports.userLogin = (req, res, next) => {
   let fetchedUser;
-  User.findOne({ email: req.body.email })
+  User.findOne({email: req.body.email})
     .then(user => {
       if (!user) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: 'Auth failed'
         });
       }
       fetchedUser = user;
@@ -40,13 +40,13 @@ exports.userLogin = (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: 'Auth failed'
         });
       }
       const token = jwt.sign(
-        { email: fetchedUser.email, userId: fetchedUser._id },
+        {email: fetchedUser.email, userId: fetchedUser._id},
         process.env.JWT_KEY,
-        { expiresIn: "1h" }
+        {expiresIn: '1h'}
       );
       res.status(200).json({
         token: token,
@@ -56,7 +56,7 @@ exports.userLogin = (req, res, next) => {
     })
     .catch(err => {
       return res.status(401).json({
-        message: "Invalid authentication credentials!"
+        message: 'Invalid authentication credentials!'
       });
     });
-}
+};
