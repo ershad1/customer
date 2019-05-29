@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PageEvent} from '@angular/material';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {AuthService} from '../../auth/auth.service';
 import {Customer} from '../../model/customer.model';
 import {CustomerService} from '../customer.service';
@@ -23,6 +23,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   private customersSub: Subscription;
   private authStatusSub: Subscription;
 
+
   constructor(
     public customersService: CustomerService,
     private authService: AuthService
@@ -39,6 +40,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
       this.isLoading = false;
       this.totalCustomers = customerData.customerCount;
       this.customers = customerData.customers;
+
     });
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authStatusSub = this.authService

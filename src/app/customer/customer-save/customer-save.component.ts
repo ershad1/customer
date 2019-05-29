@@ -6,13 +6,12 @@ import {CustomerService} from '../customer.service';
 @Component({
   selector: 'app-customer-save',
   templateUrl: './customer-save.component.html',
-  styleUrls: ['./customer-save.component.scss']
+  styleUrls: ['./customer-save.component.css']
 })
 export class CustomerSaveComponent implements OnInit {
 
 
-  constructor(public customerService: CustomerService,
-              public dialogRef: MatDialogRef<CustomerSaveComponent>) {
+  constructor(public customerService: CustomerService) {
   }
 
   ngOnInit() {
@@ -30,6 +29,5 @@ export class CustomerSaveComponent implements OnInit {
   onClose() {
     this.customerService.form.reset();
     this.customerService.initializeFormGroup();
-    this.dialogRef.close();
   }
 }

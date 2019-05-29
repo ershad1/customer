@@ -2,8 +2,19 @@
   <span>
     <a routerLink="/"><span translate>APP_NAME</span></a>
   </span>
+
   <span class="spacer"></span>
+  <span class="mat-body-1">{{'totalCustomers'|translate}}</span>
+  <mat-icon [matBadge]="totalCustomers" matBadgeColor="warn">notification_important</mat-icon>
+
   <ul>
+    <li>
+      <a mat-button routerLink="/createCustomer" routerLinkActive="mat-accent">{{'createCustomer'|translate}}</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/listCustomer" routerLinkActive="mat-accent">{{'listCustomer'|translate}}</a>
+    </li>
+ <!--
     <li *ngIf="userIsAuthenticated">
       <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
     </li>
@@ -16,6 +27,7 @@
     <li *ngIf="userIsAuthenticated">
       <button (click)="onLogout()" mat-button>Logout</button>
     </li>
+ -->
   </ul>
   <button [matMenuTriggerFor]="languageMenu" mat-icon-button>
     <mat-icon>language</mat-icon>

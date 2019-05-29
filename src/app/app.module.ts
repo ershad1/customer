@@ -7,6 +7,8 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
 import {AuthInterceptor} from './auth/auth-interceptor';
+import {CustomerListComponent} from './customer/customer-list/customer-list.component';
+import {CustomerSaveComponent} from './customer/customer-save/customer-save.component';
 import {ErrorInterceptor} from './error-interceptor';
 import {ErrorComponent} from './error/error.component';
 import {HeaderComponent} from './header/header.component';
@@ -17,7 +19,9 @@ import {SharedModule} from './shared/module/shared.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    CustomerListComponent,
+    CustomerSaveComponent
   ],
   imports: [
     TranslateModule.forRoot(),

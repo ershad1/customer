@@ -1,9 +1,6 @@
 {
-  "APP_NAME": "আমার ক্রেতাগণ",
-  "delete": "মুছুন",
-  "edit": "সম্পাদন",
-  "post.content": "পোস্ট বিস্তারিত",
-  "post.save": "সংরক্ষন",
-  "post.title": "পোস্ট শিরোনাম",
-  "postMessage": "কোন পোস্ট পাওয়া যায় নি!"
+	"APP_NAME": "আমার ক্রেতাগণ",
+	"createCustomer": "ক্রেতা তৈরি",
+	"listCustomer": "ক্রেতা ফর্দ",
+	"totalCustomers": "মোট ক্রেতা"
 }

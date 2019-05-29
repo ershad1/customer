@@ -5,6 +5,8 @@ import {Subscription} from 'rxjs';
 
 import {AuthService} from '../auth/auth.service';
 import {I18nService} from '../core';
+import {CustomerService} from '../customer/customer.service';
+import {Customer} from '../model/customer.model';
 
 @Component({
   selector: 'app-header',
@@ -15,10 +17,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
 
+  totalCustomers = 0;
+  private totalCustomersSubs: Subscription;
+
   constructor(private authService: AuthService,
               private router: Router,
               private titleService: Title,
-              private i18nService: I18nService
+              private i18nService: I18nService,
+              private customerService: CustomerService
   ) {
   }
 
@@ -41,6 +47,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     .subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
     });
+
+    this.totalCustomersSubs = this.customerService
+    .getCustomerUpdateListener()
+    .subscribe((customerData: { customers: Customer[]; customerCount: number }) => {
+      this.totalCustomers = customerData.customerCount;
+
+    });
   }
 
   setLanguage(language: string) {
@@ -53,5 +66,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authListenerSubs.unsubscribe();
+    this.totalCustomersSubs.unsubscribe();
   }
 }

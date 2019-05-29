@@ -8,14 +8,14 @@ import {CustomerSaveComponent} from './customer-save/customer-save.component';
 import {CustomerComponent} from './customer/customer.component';
 
 @NgModule({
-  declarations: [CustomerComponent, CustomerListComponent, CustomerSaveComponent],
+  declarations: [],
   imports: [
     CommonModule,
     CustomerRoutingModule,
     SharedModule
   ],
   entryComponents: [
-    CustomerSaveComponent
+    // CustomerSaveComponent
   ]
 })
 export class CustomerModule {
